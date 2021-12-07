@@ -48,7 +48,7 @@ public class OrderProducer {
         String orderNo = String.valueOf((int)(Math.random()*(10000 - 0 + 1) + 1));
         avroRecord.put("order_no",orderNo);
         avroRecord.put("date",System.currentTimeMillis());
-        avroRecord.put("rest_id",Integer.valueOf(rand.nextInt((2-1)) + 1));
+        avroRecord.put("rest_id",Integer.valueOf(rand.nextInt((9-1)) + 1));
         avroRecord.put("user_id",Integer.valueOf(rand.nextInt((9-1)) + 1));
         avroRecord.put("courier_id",Integer.valueOf(rand.nextInt((9-1)) + 1));
         avroRecord.put("item_id",Integer.valueOf(rand.nextInt((100-1)) + 1));
