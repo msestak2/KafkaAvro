@@ -9,16 +9,9 @@ import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
-import sun.net.www.content.text.Generic;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Properties;
 import java.util.Random;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
 public class OrderProducer {
 
@@ -51,15 +44,9 @@ public class OrderProducer {
         avroRecord.put("rest_id",Integer.valueOf(rand.nextInt((9-1)) + 1));
         avroRecord.put("user_id",Integer.valueOf(rand.nextInt((9-1)) + 1));
         avroRecord.put("courier_id",Integer.valueOf(rand.nextInt((9-1)) + 1));
-        avroRecord.put("item_id",Integer.valueOf(rand.nextInt((100-1)) + 1));
+        avroRecord.put("item_id",Integer.valueOf(rand.nextInt((9-1)) + 1));
         avroRecord.put("quantity",Integer.valueOf(rand.nextInt((8-1)) + 1));
-       /* Order order = new Order(orderNo,System.currentTimeMillis(), Integer.valueOf(rand.nextInt((9-0) + 1)),
-                Integer.valueOf(rand.nextInt((9-0) + 1)), Integer.valueOf(rand.nextInt((9-0) + 1))
-                new HashMap<String, Integer>(){{
-                    put("item_id", Integer.valueOf(rand.nextInt((9-0) + 1)));
-                    put("quantity", Integer.valueOf(rand.nextInt((8-0) + 1)));
-                }}
-        );*/
+
         ProducerRecord<Object, Object> producerRecord = new ProducerRecord<>(TOPIC, orderNo, avroRecord);
         return producerRecord;
     }
@@ -79,10 +66,15 @@ public class OrderProducer {
 
        KafkaProducer producer = createProducer();
 
+
         while(true){
-            producer.send(generateRecord(schema));
+            ProducerRecord record = generateRecord(schema);
+            //producer.send(record);
+
+            //System.out.println("Input data: " + web3ClientVersion.getRawResponse());
             System.out.println("[RECORD] Sent new order object.");
             Thread.sleep(10000);
         }
     }
+
 }
