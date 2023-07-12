@@ -46,16 +46,7 @@ public class OrderConsumer {
     }
 
     public static void main(String[] args) throws Exception {
-        /*Schema schema = SchemaBuilder.record("Order")
-                .fields()
-                .requiredString("order_no")
-                .requiredLong("date")
-                .requiredInt("rest_id")
-                .requiredInt("user_id")
-                .requiredInt("courier_id")
-                .requiredInt("item_id")
-                .requiredInt("quantity")
-                .endRecord();*/
+       
 
         KafkaConsumer consumer = createConsumer()   ;
         consumer.subscribe(Arrays.asList(TOPIC));

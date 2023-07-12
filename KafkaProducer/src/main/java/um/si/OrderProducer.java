@@ -69,9 +69,8 @@ public class OrderProducer {
 
         while(true){
             ProducerRecord record = generateRecord(schema);
-            //producer.send(record);
+            producer.send(record);
 
-            //System.out.println("Input data: " + web3ClientVersion.getRawResponse());
             System.out.println("[RECORD] Sent new order object.");
             Thread.sleep(10000);
         }
