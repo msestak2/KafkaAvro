@@ -8,7 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="KafkaProducer" />
         <module name="ProducerProgram" />
-        <module name="KafkaStreamsApp" />
+        <module name="KafkaStreams" />
       </profile>
     </annotationProcessing>
   </component>

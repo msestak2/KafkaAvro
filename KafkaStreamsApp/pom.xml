@@ -11,7 +11,7 @@
     <repositories>
         <repository>
             <id>confluent</id>
-            <url>http://packages.confluent.io/maven/</url>
+            <url>https://packages.confluent.io/maven/</url>
         </repository>
     </repositories>
     <properties>
@@ -48,12 +48,12 @@
         <dependency>
             <groupId>io.confluent</groupId>
             <artifactId>kafka-avro-serializer</artifactId>
-            <version>3.3.0</version>
+            <version>5.3.1</version>
         </dependency>
         <dependency>
             <groupId>org.apache.avro</groupId>
             <artifactId>avro</artifactId>
-            <version>1.7.7</version>
+            <version>1.11.3</version>
         </dependency>
         <dependency>
             <groupId>org.apache.avro</groupId>

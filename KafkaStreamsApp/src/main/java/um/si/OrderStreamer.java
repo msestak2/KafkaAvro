@@ -47,6 +47,8 @@ public class OrderStreamer {
         orderCountsStream.filter((key, value) -> Integer.valueOf(value) > 5).toStream()
                 .to("kafka-filter-5-orders", Produced.with(Serdes.Integer(), Serdes.String()));
 
+        orderCountsStream.toStream().print(Printed.toSysOut());
+
         inputStream
                 .map((k,v)->new KeyValue<>(v.get("order_no").toString(),Integer.valueOf(v.get("quantity").toString())))
                 .groupByKey(Grouped.with(Serdes.String(),Serdes.Integer()))
